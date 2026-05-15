@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>إلى إيمان ❤️</title>
+    <style>
+        /* التنسيقات العامة */
+        body {
+            background-color: #0b0214;
+            color: white;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            text-align: center;
+            padding: 20px;
+            overflow-x: hidden;
+        }
+
+        /* صفحة تسجيل الدخول */
+        .login-box {
+            margin-top: 40%;
+            background: #1a0b2e;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0px 0px 20px #ff2a74;
+        }
+        input {
+            width: 85%;
+            padding: 12px;
+            margin: 20px 0;
+            border-radius: 10px;
+            border: 1px solid #ff2a74;
+            text-align: center;
+            font-size: 18px;
+            background: #25123e;
+            color: white;
+        }
+        button {
+            background: #ff2a74;
+            color: white;
+            border: none;
+            padding: 12px 35px;
+            border-radius: 10px;
+            font-size: 18px;
+            cursor: pointer;
+            font-weight: bold;
+            box-shadow: 0 4px 10px rgba(255, 42, 116, 0.3);
+        }
+
+        /* المحتوى الرئيسي */
+        #main-content { display: none; margin-top: 10px; }
+        
+        .header-title {
+            font-size: 35px;
+            color: #ff2a74;
+            text-shadow: 0 0 15px rgba(255, 42, 116, 0.6);
+            margin-bottom: 10px;
+            letter-spacing: 2px;
+        }
+        
+        .card {
+            background: #1a0b2e;
+            padding: 20px;
+            margin: 15px auto;
+            border-radius: 20px;
+            border: 1px solid #ff2a74;
+            max-width: 95%;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.6);
+        }
+
+        /* تصميم العداد */
+        .timer-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 20px;
+        }
+        .timer-box {
+            background: #25123e;
+            padding: 10px;
+            border-radius: 12px;
+            min-width: 60px;
+            border: 1px solid #ff2a74;
+        }
+        .timer-num {
+            font-size: 22px;
+            font-weight: bold;
+            color: #ff2a74;
+        }
+        .timer-label {
+            font-size: 12px;
+            color: #ccc;
+        }
+
+        .love-text {
+            font-size: 18px;
+            line-height: 1.8;
+            color: #fce4ec;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="login-page" class="login-box">
+        <h2>أهلاً يا روحي ❤️</h2>
+        <p>اكتبي الباسورد عشان تشوفي المفاجأة</p>
+        <input type="text" id="password" placeholder="l o v e">
+        <br>
+        <button onclick="checkPassword()">دخول ✨</button>
+    </div>
+
+    <div id="main-content">
+        <p style="font-size: 20px;">أغلى إنسانة في حياتي</p>
+        <h1 class="header-title">E M A N</h1>
+        
+        <div class="card">
+            <h3>عرفنا بعض في 14/10/2025.. ومن يومها والدنيا بقت أحلى، بقالنا سوا:</h3>
+            
+            <div class="timer-container">
+                <div class="timer-box"><div class="timer-num" id="years">0</div><div class="timer-label">سنة</div></div>
+                <div class="timer-box"><div class="timer-num" id="months">0</div><div class="timer-label">شهر</div></div>
+                <div class="timer-box"><div class="timer-num" id="days">0</div><div class="timer-label">يوم</div></div>
+                <div class="timer-box"><div class="timer-num" id="hours">0</div><div class="timer-label">ساعة</div></div>
+                <div class="timer-box"><div class="timer-num" id="minutes">0</div><div class="timer-label">دقيقة</div></div>
+                <div class="timer-box"><div class="timer-num" id="seconds">0</div><div class="timer-label">ثانية</div></div>
+            </div>
+        </div>
+
+        <div class="card">
+            <p class="love-text">
+                "يا إيمان، من يوم 14 أكتوبر وانتي نورتي دنيتي.. <br>
+                كل ثانية بتعدي وإحنا مع بعض هي مكسب ليا.<br>
+                ربنا يديمك في حياتي يا أجمل صدفة حصلتلي." 💖
+            </p>
+        </div>
+        
+        <audio id="bg-music" src="song.mp3" loop></audio>
+    </div>
+
+    <script>
+        function checkPassword() {
+            var pass = document.getElementById("password").value;
+            if(pass.toLowerCase() == "love") {
+                document.getElementById("login-page").style.display = "none";
+                document.getElementById("main-content").style.display = "block";
+                document.getElementById("bg-music").play();
+                setInterval(updateTimer, 1000);
+            } else {
+                alert("الباسورد غلط! ركزي يا إيمان 😂❤️");
+            }
+        }
+
+        function updateTimer() {
+            const startDate = new Date("2025-10-14T00:00:00"); // التاريخ الجديد
+            const now = new Date();
+            let diff = now - startDate;
+
+            let seconds = Math.floor(diff / 1000);
+            let minutes = Math.floor(seconds / 60);
+            let hours = Math.floor(minutes / 60);
+            let days = Math.floor(hours / 24);
+
+            let years = Math.floor(days / 365);
+            let remainingDays = days % 365;
+            let months = Math.floor(remainingDays / 30);
+            let finalDays = remainingDays % 30;
+
+            document.getElementById("years").innerHTML = years;
+            document.getElementById("months").innerHTML = months;
+            document.getElementById("days").innerHTML = finalDays;
+            document.getElementById("hours").innerHTML = hours % 24;
+            document.getElementById("minutes").innerHTML = minutes % 60;
+            document.getElementById("seconds").innerHTML = seconds % 60;
+        }
+    </script>
+</body>
+</html>
